@@ -39,69 +39,54 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("HABERLER"),
-        centerTitle: true,
-      ),
-      body: veri != null
-          ? Container(
-              color: Colors.white,
-              child: Column(
-                children: <Widget>[
-                  Center(
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: 150,
-                          child: Card(
-                            elevation: 24,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(55))),
-                              child: ListTile(
-                                  title: Text(
-                                    veri.result[index].name,
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Text("Detay..."),
-                                  trailing: Icon(Icons.arrow_forward_ios),
-                                  leading: CircleAvatar(
-                                      backgroundImage:
-                                          NetworkImage(veri.result[index].image)),
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => HaberDetay(
-                                              veri.result[index].description,
-                                              veri.result[index].image,
-                                              veri.result[index].name,
-                                              veri.result[index].source),
-                                        ));
-                                  }),
-                            ),
-                          ),
-                        );
-                      },
-                      itemCount: 8,
-                    ),
-                  ),
-                  Text("Onur AKDOĞAN"),
-                ],
-              ),
-            )
-          : Center(
-              child:Column(
-                children: <Widget>[ CircularProgressIndicator(
-                  backgroundColor: Colors.blue,
+        appBar: AppBar(
+          title: Text("HABERLER"),
+          centerTitle: true,
+        ),
+        body: veri != null
+            ? Center(
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: 150,
+                      child: Card(
+                        elevation: 24,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(55))),
+                          child: ListTile(
+                              title: Text(
+                                veri.result[index].name,
+                                style: TextStyle(
+                                    color: Colors.redAccent,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text("Detay..."),
+                              trailing: Icon(Icons.arrow_forward_ios),
+                              leading: CircleAvatar(
+                                  backgroundImage:
+                                      NetworkImage(veri.result[index].image)),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => HaberDetay(
+                                          veri.result[index].description,
+                                          veri.result[index].image,
+                                          veri.result[index].name,
+                                          veri.result[index].source),
+                                    ));
+                              }),
+                        ),
+                      ),
+                    );
+                  },
+                  itemCount: 8,
                 ),
-                Text("Veriler YÜKLENİYOR..."),
-                ],
-              ),
-            ),
-    );
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ));
   }
 }
