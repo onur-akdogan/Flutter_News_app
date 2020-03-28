@@ -1,6 +1,11 @@
-# news
+# news APP
 
-A new Flutter project.
+Yeni Flutter Projesi.
+
+Api den gelen veriler ile canlı olarak haberleri listeleyen ve detayla gösteren cross uygulama (Şu anda yanlızca ANDROİD için debug edilmiştir)
+
+:)))))
+
 
 ## Getting Started
 
